@@ -1,7 +1,0 @@
-{
-    "include_directory": "C:/users/on3sn/desktop/programming/frost/include/frost",
-    "cpp_directory": "C:/users/on3sn/desktop/programming/frost/src",
-    "cmake_txt_directory": 
-        "C:/users/on3sn/desktop/programming/frost/CMakeLists.txt",
-    "cmake_cpp_syntax" :"src/"
-}
