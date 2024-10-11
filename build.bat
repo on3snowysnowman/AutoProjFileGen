@@ -1,0 +1,1 @@
+g++ generate.cpp FileSystemHandler.o TextFileHandler.o JsonHandler.o TimeObserver.o -Iinclude -o generate.exe
