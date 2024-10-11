@@ -1,6 +1,6 @@
 {
-    "cpp_directory": "C:/users/on3sn/desktop/programming/AutoProjFileGen/src",
+    "cpp_directory": "/home/joel/Documents/Code/AutoProjFileGen/src",
     "file_name": "Test",
-    "include_directory": "C:/users/on3sn/desktop/programming/AutoProjFileGen/include",
+    "include_directory": "/home/joel/Documents/Code/AutoProjFileGen/include",
     "overwrite_existing_files": false
 }
