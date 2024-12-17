@@ -1,6 +1,6 @@
 {
-    "cpp_directory": "/home/joel/Documents/Code/AutoProjFileGen/src",
+    "cpp_directory": "",
     "file_name": "Test",
-    "include_directory": "/home/joel/Documents/Code/AutoProjFileGen/include",
+    "include_directory": "",
     "overwrite_existing_files": false
 }

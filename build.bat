@@ -1,0 +1,1 @@
+g++ -c generate.cpp src/FileSystemHandler.cpp src/JsonHandler.cpp src/TextFileHandler.cpp src/TimeObserver.cpp -Iinclude && g++ generate.o FileSystemHandler.o JsonHandler.o TextFileHandler.o TimeObserver.o -o generate.exe
