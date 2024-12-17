@@ -21,17 +21,6 @@ int main()
     std::string cpp_directory = std::string(config_json.at("cpp_directory")) 
         + new_file_name + ".cpp";
 
-    // If the user does not want to overwrite files, and a header or cpp file already exist at the
-    // target path.
-    if(!config_json.at("overwrite_existing_files") &&
-        (FileSystemHandler::does_directory_exist(include_directory) ||
-        FileSystemHandler::does_directory_exist(cpp_directory)))
-    {
-        std::cout << "[ERR] Header or Cpp directory already exists! Set the \"overwrite_existing"
-        "_files\" to true to overwrite files.\n";
-        exit(1);
-    }
-
     // The current date (time).
     std::string date = TimeObserver::get_local_date();
 
@@ -60,13 +49,37 @@ int main()
     " *\n"
     " */\n\n#pragma once\n\n\n";
 
-    // Write the default header file contents to the header file.
-    TextFileHandler::add_to_buffer(DEF_HEADER_CONTENTS);
-    TextFileHandler::write(include_directory);
+    // Header file already exists with file overwriting disabled.
+    if(FileSystemHandler::does_directory_exist(include_directory) && !config_json.at("overwrite_existing_files"))
+    {
+        std::cout << "[WARN] Header file already exists with file overwriting disabled. Skipping...\n";
+    }
 
-    // Write the default cpp file contents to the cpp file.
-    TextFileHandler::add_to_buffer(DEF_CPP_CONTENTS);
-    TextFileHandler::write(cpp_directory);
+    else
+    {
+        // Write the default header file contents to the header file.
+        TextFileHandler::add_to_buffer(DEF_HEADER_CONTENTS);
+        if(!TextFileHandler::write(include_directory))
+        {
+            std::cout << "[ERR] Failed to write header file.\n";
+        }
+    }
+
+    // Cpp file already exists with file overwriting disabled.
+    if(FileSystemHandler::does_directory_exist(cpp_directory) && !config_json.at("overwrite_existing_files"))
+    {
+        std::cout << "[WARN] Cpp file already exists with file overwriting disabled. Skipping...\n";
+    }
+
+    else
+    {
+        // Write the default cpp file contents to the cpp file.
+        TextFileHandler::add_to_buffer(DEF_CPP_CONTENTS);
+        if(!TextFileHandler::write(cpp_directory))
+        {
+            std::cout << "[ERR] Failed to write cpp file.\n";
+        }
+    }
 
     return 0;
 }
