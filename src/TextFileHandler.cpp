@@ -1,3 +1,14 @@
+/**
+ * @file TextFileHandler.cp
+ * @author Joel Height (On3SnowySnowman@gmail.com)
+ * @brief Single class implementation.
+ * @version 0.1
+ * @date ?
+ *
+ * @copyright Copyright (c) 2024
+ *
+ */
+
 #include <sstream>
 
 #include "TextFileHandler.hpp"
@@ -21,8 +32,6 @@ std::ofstream TextFileHandler::s_output_stream;
 
 std::ostringstream TextFileHandler::s_string_stream;
 
-// std::fstream TextFileHandler::file_stream;
-
 
 // Public
 
@@ -35,13 +44,15 @@ bool TextFileHandler::clear_file(std::string file_path)
     // If the path does not exist.
     if(!FileSystemHandler::does_directory_exist(file_path))
     {
-        #ifdef FROST_DEBUG
+        return FileSystemHandler::make_file(file_path);
 
-        ProgramOutputHandler::log("TextFileHandler.clear_file() -> Directory doesn't exist: \""
-            + file_path + "\"", Frost::WARN);
-        #endif
+        // #ifdef FROST_DEBUG
 
-        return false;
+        // ProgramOutputHandler::log("TextFileHandler.clear_file() -> Directory doesn't exist: \""
+        //     + file_path + "\"", Frost::WARN);
+        // #endif
+
+        // return false;
     }
 
     s_output_stream.open(file_path, std::ios::out);
