@@ -99,7 +99,7 @@ void generate_cpp_file(const json& config_json,
 
 int main()
 {
-    json config_json = JsonHandler::get("config.json");
+    json config_json = JsonHandler::get("config_cpp.json");
 
     // Get the name of the file the user wants to create.
     std::string new_file_name = config_json.at("file_name");

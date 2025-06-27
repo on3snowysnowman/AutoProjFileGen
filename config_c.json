@@ -1,0 +1,7 @@
+{
+    "c_directory": ".",
+    "include_directory": ".",
+    "c_header_include_path": "Test.h",
+    "file_name": "Test",
+    "overwrite_existing_files": true
+}
