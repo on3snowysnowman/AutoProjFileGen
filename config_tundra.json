@@ -1,0 +1,8 @@
+{
+    "cpp_directory": ".",
+    "include_directory": ".",
+    "file_name": "Test",
+    "namespace_sig": "Tst",
+    "is_component_file": true,
+    "overwrite_existing_files": true
+}
